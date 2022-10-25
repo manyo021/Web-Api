@@ -17,5 +17,7 @@ namespace Web_Api.Data
         //Ability to query and save rpg characters name of the database is Characters
         public DbSet<Character> Characters { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
     }
 }
