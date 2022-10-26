@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Web_Api.DTOs.Character;
@@ -10,6 +12,7 @@ using Web_Api.Services.CharacterService;
 
 namespace Web_Api.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
 
@@ -24,12 +27,14 @@ namespace Web_Api.Controllers
         }
 
         //Allows us to send specific HTTP status quotes back to client
-
-
+        //
+        //[AllowAnonymous]//Allows anonymous access to the service
         [HttpGet("Get All")]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDTO>>>> Get()
         {
-            return Ok(await _characterService.GetAllCharacter());
+
+            int userId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
+            return Ok(await _characterService.GetAllCharacter(userId));
         }
 
         [HttpGet("{id}")]

@@ -9,7 +9,7 @@ namespace Web_Api.Services.CharacterService
 {
     public interface ICharacterService
     {
-        Task<ServiceResponse<List<GetCharacterDTO>>> GetAllCharacter();
+        Task<ServiceResponse<List<GetCharacterDTO>>> GetAllCharacter(int userId);
         Task<ServiceResponse<GetCharacterDTO>> GetCharacterById(int id);
 
         Task<ServiceResponse<List<GetCharacterDTO>>> AddCharacter(AddCharacterDTO newCharacter);
