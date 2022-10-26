@@ -19,5 +19,7 @@ namespace Web_Api.Data
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<Weapon> Weapons { get; set; }
+
     }
 }

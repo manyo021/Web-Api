@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Web_Api.DTOs.Character;
+using Web_Api.DTOs.Weapon;
 using Web_Api.Models;
 
 namespace Web_Api
@@ -15,6 +16,7 @@ namespace Web_Api
             CreateMap<Character, GetCharacterDTO>();
             CreateMap<AddCharacterDTO, Character>();
             CreateMap<UpdateCharacterDTO, Character>();
+            CreateMap<Weapon, GetWeaponDto>();
         }
     }
 }
