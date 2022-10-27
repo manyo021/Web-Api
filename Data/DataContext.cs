@@ -14,12 +14,27 @@ namespace Web_Api.Data
 
         }
 
+
+
+        //Seeding Data into table
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Skill>().HasData(
+             new Skill { Id = 1, Name = "Fireball", Damage = 30 },
+             new Skill { Id = 2, Name = "Electricity", Damage = 40 },
+             new Skill { Id = 3, Name = "Domination", Damage = 10 }
+            );
+        }
+
+
         //Ability to query and save rpg characters name of the database is Characters
         public DbSet<Character> Characters { get; set; }
 
         public DbSet<User> Users { get; set; }
 
         public DbSet<Weapon> Weapons { get; set; }
+
+        public DbSet<Skill> Skills { get; set; }
 
     }
 }

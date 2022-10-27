@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Web_Api.DTOs.Skill;
 using Web_Api.DTOs.Weapon;
 using Web_Api.Models;
 
@@ -24,5 +25,7 @@ namespace Web_Api.DTOs.Character
         public RpgClass Class { get; set; } = RpgClass.knight;
 
         public GetWeaponDto Weapon { get; set; }
+
+        public List<GetSkillDto> Skills { get; set; }
     }
 }

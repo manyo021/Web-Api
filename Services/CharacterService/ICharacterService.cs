@@ -18,6 +18,8 @@ namespace Web_Api.Services.CharacterService
 
         Task<ServiceResponse<List<GetCharacterDTO>>> DeleteCharacter(int id);
 
+        Task<ServiceResponse<GetCharacterDTO>> AddCharacterSkill(AddCharacterSkillDto newCharacterSkill);
+
 
 
 
